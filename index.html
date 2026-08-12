@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="A focused learning roadmap tracker for mastering data and AI skills."
+    />
+    <title>to-do — Learning roadmap</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <nav class="topbar" aria-label="Primary">
+        <a class="brand" href="#" aria-label="to-do home">
+          <span class="brand-mark" aria-hidden="true">✓</span>
+          <span>to-do</span>
+        </a>
+        <div class="topbar-note">
+          <span class="pulse-dot" aria-hidden="true"></span>
+          Your mastery roadmap
+        </div>
+      </nav>
+
+      <section class="hero" aria-labelledby="page-title">
+        <div class="hero-copy">
+          <p class="eyebrow">YOUR LEARNING DASHBOARD</p>
+          <h1 id="page-title">Small checkmarks.<br />Serious momentum.</h1>
+          <p class="hero-description">
+            Turn every topic into a confident skill. Track the path from Python
+            fundamentals to client-ready data and AI work.
+          </p>
+        </div>
+
+        <div class="progress-panel" aria-live="polite">
+          <div class="progress-ring" id="progressRing" style="--progress: 0%">
+            <div class="progress-ring-inner">
+              <strong id="progressValue">0%</strong>
+              <span>complete</span>
+            </div>
+          </div>
+          <div class="progress-details">
+            <p class="progress-label">Overall progress</p>
+            <p class="progress-count"><span id="completedCount">0</span> of <span id="totalCount">0</span> topics done</p>
+            <div class="progress-track" aria-hidden="true">
+              <span id="progressBar"></span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="momentum-grid" aria-label="Learning summary">
+        <article class="momentum-card next-card">
+          <span class="card-icon lavender" aria-hidden="true">✦</span>
+          <div>
+            <p class="card-label">NEXT UP</p>
+            <button class="next-task" id="nextTask" type="button">Start with Python fundamentals</button>
+          </div>
+          <span class="arrow" aria-hidden="true">→</span>
+        </article>
+        <article class="momentum-card">
+          <span class="card-icon mint" aria-hidden="true">⌁</span>
+          <div>
+            <p class="card-label">FOCUS AREAS</p>
+            <p class="card-value">10 subjects <span>to master</span></p>
+          </div>
+        </article>
+        <article class="momentum-card">
+          <span class="card-icon peach" aria-hidden="true">⚑</span>
+          <div>
+            <p class="card-label">CURRENT STREAK</p>
+            <p class="card-value"><span id="streakValue">0</span> topics <span>completed</span></p>
+          </div>
+        </article>
+      </section>
+
+      <section class="roadmap-header" aria-label="Roadmap controls">
+        <div>
+          <p class="eyebrow">THE ROADMAP</p>
+          <h2>Build your expertise, one topic at a time.</h2>
+        </div>
+        <div class="roadmap-actions">
+          <button class="text-button" data-action="collapse-all" type="button">Collapse all</button>
+          <button class="reset-button" data-action="reset" type="button">Reset progress</button>
+        </div>
+      </section>
+
+      <section class="toolbar" aria-label="Filter learning topics">
+        <label class="search-field">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="m21 21-4.35-4.35m2.35-5.15a7.5 7.5 0 1 1-15 0 7.5 7.5 0 0 1 15 0Z" />
+          </svg>
+          <input id="searchInput" type="search" placeholder="Search topics..." autocomplete="off" />
+        </label>
+        <div class="filter-tabs" role="group" aria-label="Topic status">
+          <button class="filter-button active" data-action="filter" data-filter="all" type="button">All topics</button>
+          <button class="filter-button" data-action="filter" data-filter="active" type="button">In progress</button>
+          <button class="filter-button" data-action="filter" data-filter="completed" type="button">Completed</button>
+        </div>
+      </section>
+
+      <section id="celebration" class="celebration" aria-live="polite" hidden>
+        <span aria-hidden="true">✦</span>
+        <p id="celebrationText"></p>
+      </section>
+
+      <section id="subjectList" class="subject-grid" aria-label="Learning subjects"></section>
+      <p id="emptyState" class="empty-state" hidden>No topics match that view. Try a different search or filter.</p>
+    </main>
+
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+    <div id="confettiLayer" class="confetti-layer" aria-hidden="true"></div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
